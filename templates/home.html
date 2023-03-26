@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Amit Careers</title>
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="shortcut icon" type="image/jpg" href="/static/small-profile.jpeg">
+        <div class="container"><h1>{{company_name}} Careers</h1></div>
+    </head>
+    <body style="background-color:rgb(232,232,232);">
+        <div class="container">
+            <img id="bg_image" src="http://127.0.0.1:5000/static/background.jpg"
+                 class="img-fluid img-thumbnail"
+                 width="620" height="390" alt="HTML Dog">
+            <p>With our free AI copywriter, you can choose from over 50
+                templates to write any type of marketing copy you desire.
+                Generate text in 10+ tones and 30+ languages with the AI Writer
+                to reach broader audiences. Say goodbye to writer's block for good
+                and save 1 hour each day with AI
+            </p>
+            <h2>Open Position</h2>
+            <br>
+            {% include 'jobs.html' %}
+            <br>
+            <div>
+                <button> Contact Us</button>
+            </div>
+        </div>
+    </body>
+</html>
