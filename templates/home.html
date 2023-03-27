@@ -2,28 +2,48 @@
 <html>
     <head>
         <title>Amit Careers</title>
-        <meta name="viewport"
-              content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
         <link rel="shortcut icon" type="image/jpg" href="/static/small-profile.jpeg">
-        <div class="container"><h1>{{company_name}} Careers</h1></div>
+        <div style = "text-align: center;"><h1>{{company_name}} Careers</h1></div>
     </head>
     <body style="background-color:rgb(232,232,232);">
         <div class="container">
+            <div>
             <img id="bg_image" src="http://127.0.0.1:5000/static/background.jpg"
-                 class="img-fluid img-thumbnail"
+                 class="center"
                  width="620" height="390" alt="HTML Dog">
-            <p>With our free AI copywriter, you can choose from over 50
-                templates to write any type of marketing copy you desire.
-                Generate text in 10+ tones and 30+ languages with the AI Writer
-                to reach broader audiences. Say goodbye to writer's block for good
-                and save 1 hour each day with AI
+            </div>
+            <p>A good recruitment message means starting the hiring process on the right foot. While potential candidates are bombarded with emails, DMs, and app notifications, you can cut through the noise with a well-crafted text message
+                Text messages have an open rate of 99% , with 97% of messages opened in 15 minutes. At the same time, the opening rate of emails is somewhere between 28% and 33%, at the beginning of the campaign.
+                Text messaging allows recruiters to follow up with candidates after an interview and keep them informed about their application status. Job seekers can also use two-way text messaging to ask for more information about new job openings and ask questions.
+                Using templates for hiring employees will streamline the recruiting process, allowing you to reach out to more candidates, and save time by reusing your best templates in future recruiting campaigns. In this article, we’ll cover a few ways you can improve your hiring using text messages.
             </p>
             <h2>Open Position</h2>
+            <table style="width:100%">
+              <tr>
+                  <td><b>Title</b></td>
+                  <td><b>Location</b></td>
+                  <td><b>Salary</b></td>
+                  <td><b>Work Type</b></td>
+                  <td><b>Apply for job</b></td>
+              </tr>
+                {% for job in jobs %}
+                <tr>
+                    <td>{{job["title"]}}</td>
+                    <td>{{job["location"]}}</td>
+                    <td>{{job["Salary"]}}</td>
+                    {% if "Work Type" in job %}
+                        <td>{{job["Work Type"]}}</td>
+                    {% else %}
+                        <td>Not Defined</td>
+                    {% endif %}
+                    <td><button type="button" style="background-color: #50C878;"><b>Apply</b></button></td>
+                </tr>
+                {% endfor %}
+
+            </table>
             <br>
-            {% include 'jobs.html' %}
-            <br>
-            <div>
+            <div class = "center-button">
                 <button> Contact Us</button>
             </div>
         </div>
