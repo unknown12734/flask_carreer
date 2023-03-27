@@ -4,9 +4,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #444;
 }
-/*
- * Formatting the header area
- */
+
 header {
   background-color: #DFB887;
   height: 35px;
@@ -101,4 +99,9 @@ table, th, td {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.uniform_justification {
+  text-align: justify;
+  text-justify: inter-word;
 }

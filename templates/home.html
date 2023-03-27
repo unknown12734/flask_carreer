@@ -9,16 +9,18 @@
     <body style="background-color:rgb(232,232,232);">
         <div class="container">
             <div>
-            <img id="bg_image" src="http://127.0.0.1:5000/static/background.jpg"
+            <img id="bg_image" src="/static/background.jpg"
                  class="center"
                  width="620" height="390" alt="HTML Dog">
             </div>
-            <p>A good recruitment message means starting the hiring process on the right foot. While potential candidates are bombarded with emails, DMs, and app notifications, you can cut through the noise with a well-crafted text message
-                Text messages have an open rate of 99% , with 97% of messages opened in 15 minutes. At the same time, the opening rate of emails is somewhere between 28% and 33%, at the beginning of the campaign.
-                Text messaging allows recruiters to follow up with candidates after an interview and keep them informed about their application status. Job seekers can also use two-way text messaging to ask for more information about new job openings and ask questions.
-                Using templates for hiring employees will streamline the recruiting process, allowing you to reach out to more candidates, and save time by reusing your best templates in future recruiting campaigns. In this article, we’ll cover a few ways you can improve your hiring using text messages.
-            </p>
-            <h2>Open Position</h2>
+            <div class="uniform_justification">
+                <p>A good recruitment message means starting the hiring process on the right foot. While potential candidates are bombarded with emails, DMs, and app notifications, you can cut through the noise with a well-crafted text message
+                    Text messages have an open rate of 99% , with 97% of messages opened in 15 minutes. At the same time, the opening rate of emails is somewhere between 28% and 33%, at the beginning of the campaign.
+                    Text messaging allows recruiters to follow up with candidates after an interview and keep them informed about their application status. Job seekers can also use two-way text messaging to ask for more information about new job openings and ask questions.
+                    Using templates for hiring employees will streamline the recruiting process, allowing you to reach out to more candidates, and save time by reusing your best templates in future recruiting campaigns. In this article, we’ll cover a few ways you can improve your hiring using text messages.
+                </p>
+            </div>
+            <h3 style="color:#000000"><b><u>Open Position</u></b></h3>
             <table style="width:100%">
               <tr>
                   <td><b>Title</b></td>
@@ -37,14 +39,20 @@
                     {% else %}
                         <td>Not Defined</td>
                     {% endif %}
-                    <td><button type="button" style="background-color: #50C878;"><b>Apply</b></button></td>
+                    <td><a type="button" href="/job/{{job['id']}}" style="background-color: #50C878;">
+                        <b><u>Apply</u></b></a></td>
                 </tr>
                 {% endfor %}
-
             </table>
             <br>
             <div class = "center-button">
-                <button> Contact Us</button>
+              <button onclick="myFunction()">Call us on Mobile</button>
+                <p id="demo"></p>
+                <script>
+                function myFunction() {
+                  document.getElementById("demo").innerHTML = "+91 8142274647";
+                }
+                </script>
             </div>
         </div>
     </body>

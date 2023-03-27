@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Amit Careers</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel="shortcut icon" type="image/jpg" href="/static/small-profile.jpeg">
+        <div style = "text-align: center;"><h1>{{company_name}} Careers</h1></div>
+    </head>
+    <body>
+        <div class="container">
+            <h4>Thanks for applying for the below position:</h4>
+            <h4>Job Title: {{result[0]["title"]}}</h4>
+            <h4>Job Location: {{result[0]["location"]}}</h4>
+            <h4>Expected Salary: {{result[0]["Salary"]}}</h4>
+            {% if result[0]["Work Type"] %}
+                <h4>Work Mode: {{result[0]["Work Type"]}}</h4>
+                {% endif %}
+        </div>
+        <div class="container">
+            <a type="button" href="/" style="background-color: #50C878;">
+                <b><u>Back</u></b></a>
+        </div>
+    </body>
+</html>
