@@ -14,11 +14,11 @@
                  width="620" height="390" alt="HTML Dog">
             </div>
             <div class="uniform_justification">
-                <p>A good recruitment message means starting the hiring process on the right foot. While potential candidates are bombarded with emails, DMs, and app notifications, you can cut through the noise with a well-crafted text message
+                <p><b>A good recruitment message means starting the hiring process on the right foot. While potential candidates are bombarded with emails, DMs, and app notifications, you can cut through the noise with a well-crafted text message
                     Text messages have an open rate of 99% , with 97% of messages opened in 15 minutes. At the same time, the opening rate of emails is somewhere between 28% and 33%, at the beginning of the campaign.
                     Text messaging allows recruiters to follow up with candidates after an interview and keep them informed about their application status. Job seekers can also use two-way text messaging to ask for more information about new job openings and ask questions.
                     Using templates for hiring employees will streamline the recruiting process, allowing you to reach out to more candidates, and save time by reusing your best templates in future recruiting campaigns. In this article, we’ll cover a few ways you can improve your hiring using text messages.
-                </p>
+                </b></p>
             </div>
             <h3 style="color:#000000"><b><u>Open Position</u></b></h3>
             <table style="width:100%">
@@ -34,8 +34,8 @@
                     <td>{{job["title"]}}</td>
                     <td>{{job["location"]}}</td>
                     <td>{{job["Salary"]}}</td>
-                    {% if "Work Type" in job %}
-                        <td>{{job["Work Type"]}}</td>
+                    {% if "work_Type" in job %}
+                        <td>{{job["work_Type"]}}</td>
                     {% else %}
                         <td>Not Defined</td>
                     {% endif %}
