@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from data import session, Job
 from flask import jsonify
 
+
 application = Flask(__name__)
 
 jobs = session.query(Job)

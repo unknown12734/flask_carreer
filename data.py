@@ -1,42 +1,26 @@
-# defined_jobs = [
-#     {
-#         "id":1,
-#         "title":"Data Science",
-#         "location": "Hyderabad",
-#         "Salary": 1000.00,
-#         "Work Type": "Remote"
-#     },
-#     {
-#             "id":2,
-#             "title":"Data Analyst",
-#             "location": "Bengaluru",
-#             "Salary": 900.00
-#     },
-#     {
-#             "id":3,
-#             "title":"Frontend Developer",
-#             "location": "Bhubaneswar",
-#             "Salary": 1100.00,
-#             "Work Type": "Hybrid"
-#     },
-#     {
-#             "id":4,
-#             "title":"Data Engineer",
-#             "location": "Hyderabad",
-#             "Salary": 1500.00,
-#             "Work Type": "Office"
-#     }]
 from sqlalchemy import create_engine, Column, Integer, String, Float
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
 
-username = 'Rinku'
-password = 'Rinku25112021'
-host = 'rinku.cqhvo2hszsw7.us-east-1.rds.amazonaws.com'
-port = 3306
-DB_NAME = 'rinku'
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 
-engine = create_engine(f"mysql+pymysql://{username}:{password}@{host}/{DB_NAME}")
+host=os.environ.get("host")
+username=os.environ.get("username")
+password=os.environ.get("password")
+DB_NAME=os.environ.get("DB_NAME")
+port = os.environ.get("port")
+dev_area = os.environ.get("dev_area")
+
+db_string = f"mysql+pymysql://{username}:{password}@{host}/{DB_NAME}"
+engine = create_engine(db_string, connect_args={
+    "ssl":{
+        "ssl_ca": "/etc/ssl/cert.pem"
+    }
+})
 
 Session = sessionmaker(bind=engine)
 
@@ -55,8 +39,12 @@ class Job(Base):
 
 Base.metadata.create_all(engine)
 
-# job1 = Job(title="Frontend Developer",location= "Bhubaneswar",Salary= 1100.00,work_Type= "Hybrid")
-#
-#
-# session.add(job1)
-# session.commit()
+if dev_area=="dev":
+    job1 = Job(title="ML Engineer",location= "Bengaluru",Salary= 2000.00,work_Type= "Hybrid")
+    session.add(job1)
+else:
+    job1 = Job(title="Frontend Developer", location="Bhubaneswar", Salary=1100.00, work_Type="Office")
+    job2 = Job(title="Backend Developer", location="Chicago", Salary=1200.00, work_Type="Work from Home")
+    job3 = Job(title="DBA", location="Hyderabad", Salary=1300.00, work_Type="Hybrid")
+
+session.commit()
