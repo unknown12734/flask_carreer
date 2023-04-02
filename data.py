@@ -2,11 +2,17 @@ from sqlalchemy import create_engine, Column, Integer, String, Float
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import os
-from os.path import join, dirname
-from dotenv import load_dotenv
 
-dotenv_path = join(dirname(__file__), '.env')
-load_dotenv(dotenv_path)
+
+####### to be deleted before each deplaoymnet
+# from os.path import join, dirname
+# from dotenv import load_dotenv
+# if os.environ.get("dev_area")=="dev":
+#
+#
+# dotenv_path = join(dirname(__file__), '.env')
+# load_dotenv(dotenv_path)
+####### to be deleted before each deplaoymnet
 
 host=os.environ.get("host")
 username=os.environ.get("username")
