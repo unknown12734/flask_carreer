@@ -16,7 +16,7 @@ def load_data(session,jobs):
 
 @application.route("/")
 def hello_world():
-    return render_template("home.html", jobs=load_data(session,jobs), company_name = "Priyanka")
+    return render_template("home.html", jobs=load_data(session,jobs), company_name = "Amit")
 
 @application.route("/app/data")
 def hello_world_api_data():

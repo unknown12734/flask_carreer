@@ -35,7 +35,7 @@ session = Session()
 Base = declarative_base()
 
 class Job(Base):
-    __tablename__="job"
+    __tablename__="job_amit"
     id = Column(Integer, primary_key=True)
     title = Column(String(50), nullable=False)
     location = Column(String(50), nullable=True)
@@ -52,5 +52,6 @@ else:
     job1 = Job(title="Frontend Developer", location="Bhubaneswar", Salary=1100.00, work_Type="Office")
     job2 = Job(title="Backend Developer", location="Chicago", Salary=1200.00, work_Type="Work from Home")
     job3 = Job(title="DBA", location="Hyderabad", Salary=1300.00, work_Type="Hybrid")
+    session.add_all([job1,job2,job3])
 
 session.commit()
